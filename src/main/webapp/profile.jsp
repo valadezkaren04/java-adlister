@@ -8,9 +8,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Profile JSP</title>
 </head>
 <body>
+
+<form method="POST">
+    <label for="username">Username: </label>
+    <input type="text" id="username" name="username">
+    <label for="password">Password: </label>
+    <input type="text" id="password" name="username">
+    <input type="submit" value="Submit">
+</form>
 
 </body>
 </html>
