@@ -13,6 +13,12 @@
 <body>
     <h1>Hello, ${name}</h1>
 
+    <form action="/hello" method="post">
+        <label for="name">Enter Name:</label>
+        <input type="text" name="name" id="name">
+        <input type="submit">
+    </form>
+
 <%--Redeploy vs Restart--%>
 
 <%--Redeploy: reset the static content in our app. Updates made will redeploy ; refresh the assets --%>
