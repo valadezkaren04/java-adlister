@@ -6,27 +6,34 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    if(request.getMethod().equalsIgnoreCase("post")) {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        if (username.equals("admin") && password.equals("password")) {
+            response.sendRedirect("profile.jsp");
+        } else {
+            response.sendRedirect("login.jsp");
+        }
+    }
+%>
 <html>
 <head>
-    <title>Login JSP</title>
+    <title>Login</title>
+    <%@include file="css/main.css"%>
 </head>
 <body>
-
-<form method="POST" action="/login.jsp">
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<%@include file="partials/navbar.jsp"%>
+<h1>Hello, please log in below.</h1>
+<div>
+    <form method="post" action="/login.jsp">
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username" placeholder="Please enter your username"/>
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password" placeholder="Password" />
+        <button type="submit">Login</button>
+    </form>
+</div>
+<%@include file="partials/footer.jsp"%>
 </body>
 </html>
