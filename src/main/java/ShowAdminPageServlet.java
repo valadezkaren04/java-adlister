@@ -16,6 +16,6 @@ public class ShowAdminPageServlet extends HttpServlet {
             return;
         }
 
-        request.getRequestDispatcher("/secret-admin-page.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/secret-admin-page.jsp").forward(request, response);
     }
 }
