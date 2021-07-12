@@ -13,12 +13,11 @@ import java.util.List;
 
 @WebServlet("/search")
 public class SearchServlet extends HttpServlet {
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String query = req.getParameter("query");
         List<Ad> results = DaoFactory.getAdsDao().searchByTitle(query);
         req.setAttribute("ads", results);
-        req.getRequestDispatcher("/WEB-INF/ads/index,jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(req, resp);
     }
 }
